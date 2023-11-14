@@ -5,11 +5,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
-        if ( isPrime(a) )
-            System.out.print("Yes");
-        else
-            System.out.print("No");
+//        if ( isPrime(a) )
+//            System.out.print("Yes");
+//        else
+//            System.out.print("No");
+        System.out.print(fibonacci(a-1));
         }
+
     static boolean isPrime(int number) {
         if (number <= 1) {
             return false;
@@ -20,5 +22,21 @@ public class Main {
             }
         }
         return true;
+    }
+    public static int fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+
+        int fib = 1;
+        int prevFib = 1;
+
+        for (int i = 2; i < n; i++) {
+            int temp = fib;
+            fib += prevFib;
+            prevFib = temp;
+        }
+
+        return fib;
     }
 }
